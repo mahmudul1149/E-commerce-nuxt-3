@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div>
     <Productcard :product="products" />
   </div>
 </template>
