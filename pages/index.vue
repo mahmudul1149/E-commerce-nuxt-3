@@ -7,11 +7,21 @@
       Loading ...
     </div>
     <div v-else>
+      <div>
+        <input
+          class="block border-2 border-slate-100 w-full text-sm text-slate-500 p-3 mb-4 border-slate-900 rounded"
+          type="text"
+          name=""
+          id=""
+          placeholder="Search "
+          v-model="newval"
+        />
+      </div>
       <div
         class="grid grid-cols-5 gap-4 max-[1240px]:grid-cols-3 max-[600px]:grid-cols-1"
       >
         <div
-          v-for="product in products"
+          v-for="product in filterdItems"
           :key="product.id"
           class="p-4 bg-white shadow-lg hover:shadow-2xl transition ease-in-out delay-150"
         >
@@ -31,13 +41,19 @@
 </template>
 
 <script setup>
-const { pending, data: products } = await useFetch(
+const newval = ref("");
+const { data: products, pending } = await useLazyFetch(
   "https://fakestoreapi.com/products",
   {
     lazy: true,
     server: false,
   }
 );
+const filterdItems = computed(() => {
+  return products.value.filter((val) =>
+    val.title.toLowerCase().includes(newval.value.toLowerCase())
+  );
+});
 </script>
 
 <style></style>
