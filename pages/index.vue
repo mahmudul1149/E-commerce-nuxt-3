@@ -1,5 +1,12 @@
 <template>
   <div class="bg-gray-100 p-10 overflow-auto h-screen">
+    <div v-if="customError" class="error-message">
+      {{ customError.message }}
+    </div>
+
+    <div v-else-if="customSuccess" class="success-message">
+      {{ customSuccess }}
+    </div>
     <div
       v-if="pending"
       class="flex justify-center items-center h-screen text-xl"
@@ -42,18 +49,24 @@
 
 <script setup>
 const newval = ref("");
-const { data: products, pending } = await useLazyFetch(
-  "https://fakestoreapi.com/products",
-  {
-    lazy: true,
-    server: false,
-  }
-);
+let customError = null;
+const {
+  data: products,
+  pending,
+  error,
+} = await useLazyFetch("https://fakestoreapi.com/products", {
+  lazy: true,
+  server: false,
+});
 const filterdItems = computed(() => {
   return products.value.filter((val) =>
     val.title.toLowerCase().includes(newval.value.toLowerCase())
   );
 });
+
+if (error.value) {
+  customError = new Error("Custom error message here");
+}
 </script>
 
 <style></style>
