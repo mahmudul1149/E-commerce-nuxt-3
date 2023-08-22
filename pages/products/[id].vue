@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import Productcard from "../components/productcard.vue";
+import Productcard from "@/components/productcard";
 const { id } = useRoute().params;
 const { data: products } = await useFetch(
   `https://fakestoreapi.com/products/${id}`
