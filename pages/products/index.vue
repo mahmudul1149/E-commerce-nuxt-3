@@ -1,12 +1,5 @@
 <template>
   <div class="bg-gray-100 p-10 overflow-auto h-screen">
-    <div v-if="customError" class="error-message">
-      {{ customError.message }}
-    </div>
-
-    <div v-else-if="customSuccess" class="success-message">
-      {{ customSuccess }}
-    </div>
     <div
       v-if="pending"
       class="flex justify-center items-center h-screen text-xl"
