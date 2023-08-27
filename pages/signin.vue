@@ -1,17 +1,6 @@
 <template>
-  <div class="sign-up-page">
+  <div class="sign-in-page">
     <form @submit.prevent>
-      <div class="input-box">
-        <label>Name</label>
-
-        <input
-          id="email"
-          type="text"
-          placeholder="Enter your name"
-          v-model="userName"
-        />
-      </div>
-
       <div class="input-box">
         <label>Email</label>
 
@@ -31,7 +20,7 @@
           v-model="password"
         />
       </div>
-      <button class="btn btn-signup pd-8" @click.prevent="signUpWithEmail">
+      <button class="btn btn-signup pd-8" @click.prevent="signInWithEmail">
         Signup
       </button>
       <div>
@@ -74,36 +63,7 @@
   </div>
 </template>
 
-<script setup>
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  updateProfile,
-} from "firebase/auth";
-import { ref } from "vue";
-const userName = ref("");
-const email = ref("");
-const password = ref("");
-
-const signUpWithEmail = async () => {
-  try {
-    const auth = getAuth();
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value,
-      userName.value
-    );
-
-    await updateProfile(user, {
-      displayName: userName.value,
-    });
-    (userName.value = ""), (email.value = ""), (password.value = "");
-  } catch (error) {
-    throw error;
-  }
-};
-</script>
+<script setup></script>
 <style scoped>
 .btn {
   cursor: pointer;
@@ -111,7 +71,7 @@ const signUpWithEmail = async () => {
   border: none;
   outline: none;
 }
-.sign-up-page {
+.sign-in-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,7 +80,7 @@ const signUpWithEmail = async () => {
   background: #f7f7ff;
   min-height: 100vh;
 }
-.sign-up-page form {
+.sign-in-page form {
   width: 400px;
   background: white;
   padding: 1rem;
@@ -134,7 +94,7 @@ form label {
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
-.sign-up-page input {
+.sign-in-page input {
   font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
   width: 100%;
@@ -164,7 +124,7 @@ form label {
   font-family: Arial, Helvetica, sans-serif;
   opacity: 0.6;
 }
-.sign-up-page .btn-google {
+.sign-in-page .btn-google {
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   width: 100%;
@@ -176,7 +136,7 @@ form label {
   padding: 0.6rem;
   border-radius: 5px;
 }
-.sign-up-page .btn-google:hover {
+.sign-in-page .btn-google:hover {
   background: #000061;
   color: white;
 }
