@@ -1,8 +1,11 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { defineStore } from "pinia";
 
 export const useMainStore = defineStore("main", {
   state: () => ({
     items: [],
+    user: null,
+    error: "",
   }),
   actions: {
     async fetchData() {
@@ -19,6 +22,23 @@ export const useMainStore = defineStore("main", {
         }
       );
       this.items = mountains.value;
+    },
+    async login(email, password) {
+      const router = useRouter();
+      const auth = getAuth();
+
+      try {
+        const { user } = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        this.user = user;
+        router.push("/products");
+      } catch (error) {
+        console.log(error);
+        this.error = "Login failed !";
+      }
     },
   },
 });

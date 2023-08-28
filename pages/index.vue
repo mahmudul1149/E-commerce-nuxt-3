@@ -86,6 +86,7 @@ const email = ref("");
 const password = ref("");
 
 const signUpWithEmail = async () => {
+  const router = useRouter();
   try {
     const auth = getAuth();
     const { user } = await createUserWithEmailAndPassword(
@@ -98,7 +99,9 @@ const signUpWithEmail = async () => {
     await updateProfile(user, {
       displayName: userName.value,
     });
-    (userName.value = ""), (email.value = ""), (password.value = "");
+    router.push("/products")((userName.value = "")),
+      (email.value = ""),
+      (password.value = "");
   } catch (error) {
     throw error;
   }

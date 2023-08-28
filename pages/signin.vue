@@ -1,6 +1,7 @@
 <template>
   <div class="sign-in-page">
     <form @submit.prevent>
+      <p class="text-center text-red-500">{{ store.error }}</p>
       <div class="input-box">
         <label>Email</label>
 
@@ -21,7 +22,7 @@
         />
       </div>
       <button class="btn btn-signup pd-8" @click.prevent="signInWithEmail">
-        Signup
+        SignIn
       </button>
       <div>
         <div class="or">or</div>
@@ -63,7 +64,16 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMainStore } from "@/store/index";
+const store = useMainStore();
+const email = ref("");
+const password = ref("");
+
+const signInWithEmail = async () => {
+  await store.login(email.value, password.value);
+};
+</script>
 <style scoped>
 .btn {
   cursor: pointer;
