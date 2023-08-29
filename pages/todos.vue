@@ -66,13 +66,17 @@
 </template>
 
 <script setup>
+import { useMainStore } from "@/store/index";
 import { ref } from "vue";
+const store = useMainStore();
 const newVal = ref("");
 const isEditing = ref(false);
 const seletedIndex = ref(null);
 const isSubmitting = ref(false);
 const isUpdating = ref(false);
-
+const user = computed(() => {
+  return store.user.displayName || "";
+});
 const {
   data: todos,
   pending,
@@ -83,16 +87,24 @@ const {
   lazy: true,
 });
 const submitData = async () => {
-  isSubmitting.value = true;
-  await useFetch(`https://backend-todo-api-mahmudul.onrender.com/todo/`, {
-    method: "POST",
-    body: {
-      title: newVal.value,
-    },
-  });
-  newVal.value = "";
-  refresh();
-  isSubmitting.value = false;
+  try {
+    isSubmitting.value = true;
+    const { data } = await useFetch(
+      `https://backend-todo-api-mahmudul.onrender.com/todo/`,
+      {
+        method: "POST",
+        body: {
+          title: newVal.value,
+        },
+      }
+    );
+    newVal.value = "";
+  } catch (error) {
+    console.log(error);
+  } finally {
+    refresh();
+    isSubmitting.value = false;
+  }
 };
 const updateTodo = (id, todo) => {
   newVal.value = todo.title;
@@ -117,16 +129,21 @@ const updateExistingTodo = async () => {
   isUpdating.value = false;
   isEditing.value = false;
 };
-const deleteTodos = async (id) => {
-  const res = await useFetch(
-    `https://backend-todo-api-mahmudul.onrender.com/todo/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
 
-  todos.value.filter((todo) => todo.id !== id);
-  refresh();
+const deleteTodos = async (id) => {
+  try {
+    const res = await useFetch(
+      `https://backend-todo-api-mahmudul.onrender.com/todo/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    todos.value.filter((todo) => todo.id !== id);
+  } catch (error) {
+  } finally {
+    refresh();
+  }
 };
 </script>
 

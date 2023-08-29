@@ -99,9 +99,8 @@ const signUpWithEmail = async () => {
     await updateProfile(user, {
       displayName: userName.value,
     });
-    router.push("/products")((userName.value = "")),
-      (email.value = ""),
-      (password.value = "");
+    router.push("/products");
+    (userName.value = ""), (email.value = ""), (password.value = "");
   } catch (error) {
     throw error;
   }
