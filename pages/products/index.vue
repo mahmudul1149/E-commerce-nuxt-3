@@ -4,26 +4,7 @@
   </div>
   <div v-else class="grid grid-cols-[250px,auto]">
     <div class="bg-black p-2">
-      <div class="mt-16">
-        <div
-          class="flex gap-2 items-center bg-red-800 text-white mb-2 p-1 rounded"
-        >
-          <img src="../../assets/images/category.png" alt="" />
-          <h1 class="">Category</h1>
-        </div>
-
-        <select
-          name=""
-          id=""
-          v-model="selectedCategory"
-          class="w-full p-1 rounded"
-        >
-          <option value="">All</option>
-          <option v-for="category in categories" :key="category">
-            {{ category }}
-          </option>
-        </select>
-      </div>
+      <Category :categories="categories" v-model="selectedCategory" />
     </div>
     <div class="bg-gray-200 pt-16 p-10 overflow-auto h-screen">
       <div>
@@ -63,6 +44,7 @@
 </template>
 
 <script setup>
+import Category from "@/components/category";
 const newval = ref("");
 const selectedCategory = ref("");
 const {

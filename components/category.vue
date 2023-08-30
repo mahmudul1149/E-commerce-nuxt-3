@@ -1,0 +1,35 @@
+<template>
+  <div class="mt-16">
+    <div class="flex gap-2 items-center bg-red-800 text-white mb-2 p-1 rounded">
+      <img src="../assets/images/category.png" alt="" />
+      <h1 class="">Category</h1>
+    </div>
+
+    <select
+      name=""
+      id=""
+      :value="modelValue"
+      @input="updateSelectedCategory($event.target.value)"
+      class="w-full p-1 rounded"
+    >
+      <option value="">All</option>
+      <option v-for="category in categories" :key="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
+</template>
+
+<script setup>
+import { defineEmits, defineProps } from "vue";
+
+const props = defineProps({
+  modelValue: String,
+  categories: Array,
+});
+const emit = defineEmits(["update:modelValue"]);
+
+const updateSelectedCategory = (value) => {
+  emit("update:modelValue", value);
+};
+</script>
