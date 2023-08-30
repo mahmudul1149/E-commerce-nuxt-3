@@ -1,27 +1,28 @@
 <template>
   <header>
     <nav
-      class="bg-white border-gray-200 px-4 lg:px-6 dark:bg-gray-800 fixed w-full z-10"
+      class="bg-slate-800 text-white border-gray-200 px-6 lg:px-6 dark:bg-white fixed w-full"
     >
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen"
       >
-        <NuxtLink href="#" class="flex items-center">
+        <h1>Shoping</h1>
+        <!-- <NuxtLink href="#" class="flex items-center">
           <img
             src="https://media.istockphoto.com/id/1273799653/vector/shopping-cart-button-icon.jpg?s=612x612&w=0&k=20&c=OJT4ioCdn_xUhcyuij4awr0o_qorZ4fKCACrLkpeFhg="
             class="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />
-        </NuxtLink>
+        </NuxtLink> -->
         <div class="flex items-center lg:order-2">
           <NuxtLink
             href="/"
-            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+            class="text-slate-80 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Sign Up</NuxtLink
           >
           <NuxtLink
             href="/signin"
-            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+            class="text-white dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Log In</NuxtLink
           >
           <button
@@ -68,7 +69,7 @@
             <li>
               <NuxtLink
                 href="/"
-                class="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white"
+                class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 aria-current="page"
                 >Home</NuxtLink
               >
@@ -76,7 +77,7 @@
             <li>
               <NuxtLink
                 href="/products/"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >Products</NuxtLink
               >
             </li>
@@ -84,14 +85,14 @@
             <li>
               <NuxtLink
                 href="/todos"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >Todos</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
                 href="/mountains"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >Mountains</NuxtLink
               >
             </li>
