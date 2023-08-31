@@ -6,6 +6,7 @@ export const useMainStore = defineStore("main", {
     items: [],
     user: null,
     error: "",
+    wishlist: [],
   }),
   actions: {
     async fetchData() {
@@ -39,6 +40,25 @@ export const useMainStore = defineStore("main", {
         console.log(error);
         this.error = "Login failed !";
       }
+    },
+    async initializeWishlist() {
+      const storedWishlist = localStorage.getItem("wishlist");
+      if (storedWishlist) {
+        this.wishlist = JSON.parse(storedWishlist);
+      }
+    },
+    async addToWishlist(product) {
+      const record = this.wishlist.find((item) => item.id === product.id);
+      if (record) {
+        record.quantity++;
+      } else {
+        this.wishlist.push({ ...product, quantity: 1 });
+      }
+      this.saveWishlistToStorage();
+    },
+
+    async saveWishlistToStorage() {
+      localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
     },
   },
 });

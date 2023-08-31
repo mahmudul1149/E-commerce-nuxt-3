@@ -16,13 +16,13 @@
         </NuxtLink> -->
         <div class="flex items-center lg:order-2">
           <NuxtLink
-            href="/"
+            href="/wishlist"
             class="text-slate-80 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >WishList</NuxtLink
           >
 
           <NuxtLink
-            href="/signup"
+            href="/"
             class="text-slate-80 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Sign Up</NuxtLink
           >

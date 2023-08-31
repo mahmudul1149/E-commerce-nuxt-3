@@ -55,11 +55,10 @@ const {
   lazy: true,
   server: false,
 });
-console.log(products);
+
 const categories = computed(() => [
   ...new Set(products.value.map((val) => val.category)),
 ]);
-console.log(categories);
 const filterdItems = computed(() => {
   if (!selectedCategory.value && !newval.value) {
     return products.value;

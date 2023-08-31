@@ -17,6 +17,7 @@
           <p class="font-bold border-b-2 pb-2 mb-2">product description</p>
           <p>{{ product.description }}</p>
           <button
+            @click="addItem(product)"
             class="font-sans bg-[#F57224] hover:bg-[#D0611E] antialiased text-white border-red-300 border shadow-md text-base w-90 text-sm px-4 py-1 mt-4 rounded-full mt-1 text-lg transition ease-in-out delay-150"
           >
             Add to Cart
@@ -28,7 +29,13 @@
 </template>
 
 <script setup>
+import { useMainStore } from "@/store/index";
+const store = useMainStore();
 const { product } = defineProps(["product"]);
+const wishlist = store.wishlist;
+const addItem = async (item) => {
+  await store.addToWishlist(item);
+};
 </script>
 
 <style></style>
