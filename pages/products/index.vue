@@ -3,35 +3,35 @@
     Loading ...
   </div>
   <div v-else class="grid grid-cols-[250px,auto]">
-    <div class="bg-black p-2">
+    <div class="bg-[#333333] p-2">
       <Category :categories="categories" v-model="selectedCategory" />
     </div>
-    <div class="bg-gray-200 pt-16 p-10 overflow-auto h-screen">
+    <div class="bg-gray-200 pt-16 p-20 overflow-auto h-screen">
       <div>
         <div>
           <input
-            class="block bg-white border-gray w-full text-sm text-slate-500 p-3 mb-4 border-slate-900 rounded focus:outline-none rounded-full"
+            class="block border border-blue-800 w-full text-sm text-slate-500 p-3 mb-4 placeholder-slate-800 focus:outline-none rounded rounded-2xl"
             type="text"
             name=""
             id=""
-            placeholder="Search "
+            placeholder="Search for items"
             v-model="newval"
           />
         </div>
 
         <div
-          class="grid grid-cols-5 gap-4 max-[1240px]:grid-cols-3 max-[600px]:grid-cols-1"
+          class="grid grid-cols-6 gap-4 max-[1240px]:grid-cols-3 max-[600px]:grid-cols-1"
         >
           <div
             v-for="product in filterdItems"
             :key="product.id"
-            class="p-4 bg-slate-50 shadow-lg hover:shadow-2xl transition ease-in-out delay-150 rounded"
+            class="p-4 bg-slate-50 hover:shadow-2xl transition ease-in-out delay-150 rounded"
           >
             <img class="w-80 h-40 object-contain" :src="product.image" alt="" />
-            <h2 class="truncate text-green-600">{{ product.title }}</h2>
+            <h2 class="truncate text-blue-950 mb-1">{{ product.title }}</h2>
             <NuxtLink :to="`/products/${product.id}`"
               ><button
-                class="font-sans antialiased text-black border-current border text-base w-90 text-2xl p-2 rounded-full mt-1"
+                class="font-sans antialiased text-red-500 border-red-300 border shadow-md text-base w-90 text-sm px-2 py-1 rounded-full mt-1"
               >
                 View Details
               </button></NuxtLink

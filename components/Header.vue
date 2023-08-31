@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav
-      class="bg-slate-800 text-white border-gray-200 px-6 lg:px-6 dark:bg-white fixed w-full"
+      class="bg-[#F85606] text-white border-gray-200 px-6 lg:px-6 dark:bg-white fixed w-full"
     >
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen"
