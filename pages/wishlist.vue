@@ -1,6 +1,27 @@
 <template>
-  <div class="bg-[#F4F4F4] pt-16 p-20 overflow-auto h-screen">
-    <div class="max-w-6xl pt-26 container mx-auto">
+  <div class="bg-[#F4F4F4] overflow-auto h-screen">
+    <div v-if="mainStore.wishlist.length === 0">
+      <div class="flex justify-center items-center h-screen overflow-hidden">
+        <div class="bg-white rounded-lg shadow-md p-8 mx-4 md:mx-auto max-w-md">
+          <h2 class="text-2xl font-semibold text-red-500">Empty Wishlist</h2>
+          <p class="text-gray-600 mt-4">
+            Your wishlist is empty right now, but that's an opportunity to add
+            products you love! Click "Add to Wishlist" on any product page to
+            save items for later.
+          </p>
+          <p class="text-gray-600 mt-4">
+            Explore our amazing collection and start shopping now!
+          </p>
+          <NuxtLink
+            to="/"
+            href="#"
+            class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 mt-6 rounded-md transition duration-300"
+            >Browse Products</NuxtLink
+          >
+        </div>
+      </div>
+    </div>
+    <div v-else class="max-w-6xl pt-26 pt-16 p-20 container mx-auto">
       <h1 class="text-center mb-4 text-2xl">WishList</h1>
       <ul>
         <li
@@ -62,4 +83,9 @@ onMounted(() => {
   mainStore.initializeWishlist();
 });
 </script>
-<style scoped></style>
+<style scoped>
+.bg-image {
+  background: url("https://geekflare.com/wp-content/uploads/2023/03/wishlist-apps-1200x385.png")
+    no-repeat center center.;
+}
+</style>
