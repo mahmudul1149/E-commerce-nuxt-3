@@ -29,7 +29,15 @@
           >
             <img class="w-80 h-40 object-contain" :src="product.image" alt="" />
             <h2 class="truncate text-blue-950 mb-1">{{ product.title }}</h2>
-            <NuxtLink :to="`/products/${product.id}`"
+            <NuxtLink v-if="mainStore.user" :to="`/products/${product.id}`"
+              ><button
+                class="font-sans antialiased text-red-500 border-red-300 border shadow-md text-base w-90 text-sm px-2 py-1 rounded-full mt-1"
+              >
+                View Details
+              </button></NuxtLink
+            >
+
+            <NuxtLink v-else to="/signin"
               ><button
                 class="font-sans antialiased text-red-500 border-red-300 border shadow-md text-base w-90 text-sm px-2 py-1 rounded-full mt-1"
               >
@@ -45,6 +53,8 @@
 
 <script setup>
 import Category from "@/components/category";
+import { useMainStore } from "@/store/index";
+const mainStore = useMainStore();
 const newval = ref("");
 const selectedCategory = ref("");
 const {

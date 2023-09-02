@@ -75,12 +75,15 @@
 </template>
 
 <script setup>
+import { useMainStore } from "@/store/index";
+
 import {
   createUserWithEmailAndPassword,
   getAuth,
   updateProfile,
 } from "firebase/auth";
 import { ref } from "vue";
+const store = useMainStore();
 const userName = ref("");
 const email = ref("");
 const password = ref("");
@@ -99,7 +102,8 @@ const signUpWithEmail = async () => {
     await updateProfile(user, {
       displayName: userName.value,
     });
-    router.push("/products");
+    store.user = user;
+    router.push("/");
     (userName.value = ""), (email.value = ""), (password.value = "");
   } catch (error) {
     throw error;

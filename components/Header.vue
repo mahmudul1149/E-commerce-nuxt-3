@@ -24,7 +24,7 @@
             >Log In</NuxtLink
           >
           <NuxtLink
-            href="/"
+            href="/signup"
             class="border-2 border-white text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Sign Up</NuxtLink
           >
@@ -63,10 +63,22 @@
           </button>
         </div>
       </div>
+      <p class="text-white">{{ user.displayName }}</p>
     </nav>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMainStore } from "@/store/index";
+const mainStore = useMainStore();
+
+const user = computed(() => {
+  return mainStore.user || {};
+});
+onMounted(() => {
+  mainStore.initializeAuth();
+  console.log("ff");
+});
+</script>
 
 <style></style>

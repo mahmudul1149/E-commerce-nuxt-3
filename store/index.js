@@ -35,7 +35,7 @@ export const useMainStore = defineStore("main", {
           password
         );
         this.user = user;
-        router.push("/products");
+        router.push("/");
       } catch (error) {
         console.log(error);
         this.error = "Login failed !";
@@ -59,6 +59,24 @@ export const useMainStore = defineStore("main", {
 
     async saveWishlistToStorage() {
       localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
+    },
+    async initializeAuth() {
+      // Listen for authentication state changes
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.setUser(user);
+        } else {
+          this.clearUser();
+        }
+      });
+    },
+
+    setUser(user) {
+      this.user = user;
+    },
+
+    clearUser() {
+      this.user = null;
     },
   },
 });

@@ -1,9 +1,10 @@
-import { useMainStore } from "~/store";
+// import { useMainStore } from "~/store";
 
-export default defineNuxtPlugin(({ $pinia }) => {
-  return {
-    provide: {
-      store: useMainStore($pinia),
-    },
-  };
-});
+// export default defineNuxtPlugin(({ $pinia }) => {
+//   return {
+//     provide: {
+//       store: useMainStore($pinia),
+//     },
+//   };
+// });
+export default defineNuxtPlugin(() => {});
