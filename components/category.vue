@@ -1,6 +1,8 @@
 <template>
-  <div class="mt-16">
-    <div class="flex gap-2 items-center bg-red-800 text-white mb-2 p-1 rounded">
+  <div class="mt-20">
+    <div
+      class="flex gap-2 items-center bg-[#0074A2] text-white mb-2 p-1 rounded"
+    >
       <img src="../assets/images/category.png" alt="" />
       <h1>Category</h1>
     </div>

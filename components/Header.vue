@@ -6,7 +6,7 @@
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen"
       >
-        <NuxtLink href="#" class="flex items-center">
+        <NuxtLink href="/" class="flex items-center">
           <div class="from-pink-500 via-purple-500 to-indigo-500">
             <h1 class="text-2xl text-shadow-md italic">Shopping</h1>
           </div>

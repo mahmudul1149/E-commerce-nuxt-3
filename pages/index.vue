@@ -6,11 +6,11 @@
     <div class="bg-[#333333] p-2">
       <Category :categories="categories" v-model="selectedCategory" />
     </div>
-    <div class="bg-gray-200 pt-16 p-20 overflow-auto h-screen">
+    <div class="bg-gray-200 pt-20 p-20 overflow-auto h-screen">
       <div>
         <div>
           <input
-            class="block border border-blue-800 w-full text-sm text-slate-500 p-3 mb-4 placeholder-slate-800 focus:outline-none rounded rounded-2xl"
+            class="block border border-yellow-500 w-full text-sm text-slate-500 p-3 mb-4 placeholder-slate-800 focus:outline-none rounded rounded-3xl"
             type="text"
             name=""
             id=""
