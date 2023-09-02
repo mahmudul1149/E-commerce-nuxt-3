@@ -83,9 +83,4 @@ onMounted(() => {
   mainStore.initializeWishlist();
 });
 </script>
-<style scoped>
-.bg-image {
-  background: url("https://geekflare.com/wp-content/uploads/2023/03/wishlist-apps-1200x385.png")
-    no-repeat center center.;
-}
-</style>
+<style scoped></style>
