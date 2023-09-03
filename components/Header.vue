@@ -11,7 +11,7 @@
             <h1 class="text-2xl text-shadow-md italic">Shopping</h1>
           </div>
         </NuxtLink>
-        <div class="flex items-center lg:order-2">
+        <div class="flex items-center lg:order-2 gap-1">
           <NuxtLink
             href="/wishlist"
             class="text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
@@ -28,6 +28,30 @@
             class="border-2 border-white text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Sign Up</NuxtLink
           >
+
+          <div v-if="user" class="relative w-10 h-10">
+            <div v-if="user.photoURL">
+              <img
+                class="w-10 h-10 rounded-full cursor-pointer"
+                :src="user.photoURL"
+                alt=""
+                @click.stop="showPopUpProfileBox = !showPopUpProfileBox"
+              />
+            </div>
+            <div v-else class="w-10 h-10 rounded-full">
+              <img
+                class="w-10 h-10 rounded-full cursor-pointer"
+                src="https://deejayfarm.com/wp-content/uploads/2019/10/Profile-pic.jpg"
+                alt=""
+                @click.stop="showPopUpProfileBox = !showPopUpProfileBox"
+              />
+            </div>
+            <popup-profile-box
+              v-show="showPopUpProfileBox"
+              class="block absolute bg-gray-100 p-2 min-w-[200px] min-h-[118px] top-[3rem] right-0 bottom-0 z-10 shadow-lg shadow-indigo-500/50"
+            ></popup-profile-box>
+          </div>
+
           <button
             data-collapse-toggle="mobile-menu-2"
             type="button"
@@ -63,14 +87,16 @@
           </button>
         </div>
       </div>
-      <!-- <p class="text-white">{{ user.email }}</p> -->
     </nav>
   </header>
 </template>
 
 <script setup>
+import PopupProfileBox from "@/components/popupProfile.vue";
 import { useMainStore } from "@/store/index";
+
 const mainStore = useMainStore();
+const showPopUpProfileBox = ref(false);
 
 const user = computed(() => {
   return mainStore.user || {};

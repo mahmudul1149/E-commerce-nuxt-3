@@ -1,5 +1,5 @@
 <template>
-  <div v-if="pending" class="flex justify-center items-center h-screen text-xl">
+  <div v-if="loading" class="flex justify-center items-center h-screen text-xl">
     Loading ...
   </div>
   <div v-else class="grid grid-cols-[250px,auto]">
@@ -56,18 +56,21 @@ const { $axios } = useNuxtApp();
 
 import Category from "@/components/category";
 import { useMainStore } from "@/store/index";
-// import axios from "axios";
 const mainStore = useMainStore();
 const newval = ref("");
+const loading = ref(false);
 const selectedCategory = ref("");
 const products = ref([]);
 
 const fetchData = async () => {
   try {
+    loading.value = true;
     const { data } = await $axios.get("/products");
     products.value = data;
   } catch (error) {
     throw error;
+  } finally {
+    loading.value = false;
   }
 };
 
