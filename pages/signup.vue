@@ -1,19 +1,16 @@
 <template>
   <div class="sign-up-page">
     <form @submit.prevent>
-      <div class="input-box">
-        <label>Name</label>
+      <h1 class="text-3xl font-sans text-center mb-4 text-white">SIGN UP</h1>
 
-        <input
-          id="email"
-          type="text"
-          placeholder="Enter your name"
-          v-model="userName"
-        />
+      <div class="input-box">
+        <label class="font-sans text-white">Name</label>
+
+        <input type="text" placeholder="Enter your name" v-model="userName" />
       </div>
 
       <div class="input-box">
-        <label>Email</label>
+        <label class="font-sans font-2xl text-white">Email</label>
 
         <input
           id="email"
@@ -23,7 +20,7 @@
         />
       </div>
       <div class="input-box">
-        <label>Password</label>
+        <label class="font-sans font-2xl text-white">Password</label>
         <input
           id="password"
           type="password"
@@ -31,14 +28,20 @@
           v-model="password"
         />
       </div>
-      <button class="btn btn-signup pd-8" @click.prevent="signUpWithEmail">
+      <button
+        class="btn btn-signup pd-8 font-sans text-white"
+        @click.prevent="signUpWithEmail"
+      >
         Signup
       </button>
       <div>
         <div class="or">or</div>
       </div>
 
-      <button class="btn btn-google pd-8" @click.prevent="signInWithGoogle">
+      <button
+        class="btn btn-google pd-8 text-white font-sans"
+        @click.prevent="signInWithGoogle"
+      >
         <span> Sign up With </span>
 
         <svg
@@ -123,25 +126,30 @@ const signUpWithEmail = async () => {
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
-  background: #f7f7ff;
+  background-image: linear-gradient(
+    45deg,
+    #1b1a2a,
+    #431f32,
+    #293467,
+    #3e2465,
+    #412737
+  );
   min-height: 100vh;
 }
 .sign-up-page form {
   width: 400px;
-  background: white;
+  background-image: linear-gradient(360deg, #1b1a2a, #431f32, #293467, #472035);
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 12px rgb(0, 36, 128);
+  box-shadow: 0 0 8px 1px rgb(212, 194, 194);
 }
 form label {
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
 }
 .sign-up-page input {
-  font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
   width: 100%;
   padding: 0.6rem;
@@ -151,27 +159,26 @@ form label {
   border-radius: 5px;
 }
 .btn-signup {
-  font-family: "Open Sans", sans-serif;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
   border: 1px solid #969292 !important;
   width: 100%;
   padding: 0.6rem;
-  background: #000061;
-  color: white;
+  background: #242436;
   border-radius: 5px;
 }
 .btn-signup:hover {
-  background: white;
-  color: #333;
+  background: #000061;
+  color: #ffffff;
 }
 .or {
+  color: white;
   padding: 0.5rem 0;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   opacity: 0.6;
 }
 .sign-up-page .btn-google {
-  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   width: 100%;
   text-align: center !important;
