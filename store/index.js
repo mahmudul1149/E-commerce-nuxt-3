@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { defineStore } from "pinia";
 
 export const useMainStore = defineStore("main", {
@@ -40,6 +40,15 @@ export const useMainStore = defineStore("main", {
         console.log(error);
         this.error = "Login failed !";
       }
+    },
+    async logout() {
+      const router = useRouter();
+      const auth = getAuth();
+      this.clearUser();
+      router.push("/signin");
+      try {
+        await signOut(auth);
+      } catch (error) {}
     },
     async initializeWishlist() {
       const storedWishlist = localStorage.getItem("wishlist");

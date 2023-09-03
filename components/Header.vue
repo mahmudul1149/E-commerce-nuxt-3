@@ -48,6 +48,7 @@
             </div>
             <popup-profile-box
               v-show="showPopUpProfileBox"
+              @click="showPopUpProfileBox = !showPopUpProfileBox"
               class="block absolute bg-gray-100 p-2 min-w-[200px] min-h-[118px] top-[3rem] right-0 bottom-0 z-10 shadow-lg shadow-indigo-500/50"
             ></popup-profile-box>
           </div>
@@ -99,7 +100,7 @@ const mainStore = useMainStore();
 const showPopUpProfileBox = ref(false);
 
 const user = computed(() => {
-  return mainStore.user || {};
+  return mainStore.user;
 });
 </script>
 
