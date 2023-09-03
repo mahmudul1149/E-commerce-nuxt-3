@@ -9,4 +9,9 @@ export default defineNuxtConfig({
       ["useMainStore", "useMainStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+  runtimeConfig: {
+    public: {
+      baseURL: "https://fakestoreapi.com/",
+    },
+  },
 });

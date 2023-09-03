@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useMainStore } from "~/store/index"; //
 export default defineNuxtPlugin((nuxtApp) => {
   const firebaseConfig = {
     apiKey: "AIzaSyB64dapkwR4kCnNyyF1ZjjcTn5eXOB7sZc",
@@ -12,4 +14,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app); // Get the auth instance
+
+  const authStore = useMainStore(); // Get the Pinia store instance
+
+  // Listen for authentication state changes
+  onAuthStateChanged(auth, (user) => {
+    authStore.setUser(user); // Update the user state in the Pinia store
+  });
 });

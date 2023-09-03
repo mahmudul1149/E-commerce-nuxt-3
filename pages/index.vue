@@ -52,18 +52,27 @@
 </template>
 
 <script setup>
+const { $axios } = useNuxtApp();
+
 import Category from "@/components/category";
 import { useMainStore } from "@/store/index";
+// import axios from "axios";
 const mainStore = useMainStore();
 const newval = ref("");
 const selectedCategory = ref("");
-const {
-  data: products,
-  pending,
-  error,
-} = await useLazyFetch("https://fakestoreapi.com/products", {
-  lazy: true,
-  server: false,
+const products = ref([]);
+
+const fetchData = async () => {
+  try {
+    const { data } = await $axios.get("/products");
+    products.value = data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+onMounted(() => {
+  fetchData();
 });
 
 const categories = computed(() => [

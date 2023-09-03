@@ -60,16 +60,6 @@ export const useMainStore = defineStore("main", {
     async saveWishlistToStorage() {
       localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
     },
-    async initializeAuth() {
-      // Listen for authentication state changes
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          this.setUser(user);
-        } else {
-          this.clearUser();
-        }
-      });
-    },
 
     setUser(user) {
       this.user = user;

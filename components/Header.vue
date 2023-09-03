@@ -63,7 +63,7 @@
           </button>
         </div>
       </div>
-      <p class="text-white">{{ user.displayName }}</p>
+      <!-- <p class="text-white">{{ user.email }}</p> -->
     </nav>
   </header>
 </template>
@@ -74,10 +74,6 @@ const mainStore = useMainStore();
 
 const user = computed(() => {
   return mainStore.user || {};
-});
-onMounted(() => {
-  mainStore.initializeAuth();
-  console.log("ff");
 });
 </script>
 
