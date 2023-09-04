@@ -30,12 +30,12 @@
           :key="product.id"
         >
           <div>
-            <img :src="product.image" alt="" class="w-14 h-14" />
+            <img :src="product.thumbnail" alt="" class="w-14 h-14" />
           </div>
           <p class="font-serif text-lg">{{ product.title }}</p>
           <h1 class="font-sans">{{ product.category }}</h1>
           <div class="flex items-center flex-col">
-            <h1 class="font-mono price text-red-500 text-lg">
+            <h1 class="font-sans price text-red-500 text-xl">
               ${{ product.price }}
             </h1>
             <svg
