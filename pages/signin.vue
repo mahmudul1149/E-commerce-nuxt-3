@@ -1,6 +1,6 @@
 <template>
   <div class="sign-in-page t">
-    <form @submit.prevent>
+    <form @submit.prevent class="p-4">
       <h1 class="text-3xl font-sans text-center mb-4 text-white">SIGN IN</h1>
       <p class="text-center text-red-500">{{ store.error }}</p>
 
@@ -24,7 +24,7 @@
         />
       </div>
       <button
-        class="btn btn-signup pd-8 font-sans text-white"
+        class="btn btn-signup text-white opacity-90"
         @click.prevent="signInWithEmail"
       >
         Sign In
@@ -34,7 +34,7 @@
       </div>
 
       <button
-        class="btn btn-google pd-8 font-sans text-white"
+        class="btn btn-google text-white opacity-90"
         @click.prevent="signInWithGoogle"
       >
         <span> Sign in With </span>
@@ -108,9 +108,8 @@ const signInWithEmail = async () => {
 .sign-in-page form {
   width: 400px;
   background-image: linear-gradient(360deg, #1b1a2a, #431f32, #293467, #472035);
-  padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 8px 1px rgb(212, 194, 194);
+  box-shadow: 0 0 0 1.2px #3d3d4b;
 }
 form label {
   display: block;
@@ -127,6 +126,8 @@ form label {
   border-radius: 5px;
 }
 .btn-signup {
+  font-family: cursive;
+  letter-spacing: 1px;
   margin-top: 0.5rem;
   font-size: 0.9rem;
   border: 1px solid #969292 !important;
@@ -148,6 +149,7 @@ form label {
   opacity: 0.6;
 }
 .sign-in-page .btn-google {
+  font-family: cursive;
   font-size: 0.9rem;
   width: 100%;
   text-align: center !important;
