@@ -1,6 +1,6 @@
 <template>
   <div class="sign-in-page t">
-    <form @submit.prevent class="p-4">
+    <form @submit.prevent class="p-5">
       <h1 class="text-3xl font-sans text-center mb-4 text-white">SIGN IN</h1>
       <p class="text-center text-red-500">{{ store.error }}</p>
 

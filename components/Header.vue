@@ -12,24 +12,35 @@
           </div>
         </NuxtLink>
         <div class="flex items-center lg:order-2 gap-1">
-          <NuxtLink
-            href="/wishlist"
-            class="relative text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
-            >WishList
+          <div v-if="user">
+            <NuxtLink
+              href="/wishlist"
+              class="relative text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
+              >WishList
 
-            <p
-              class="absolute top-0 right-0 bg-green-300 rounded-full w-4 h-4 items-center justify-center flex text-black"
-            >
-              {{ mainStore.wishlist.length }}
-            </p>
-          </NuxtLink>
+              <p
+                class="absolute top-0 right-0 bg-green-300 rounded-full w-4 h-4 items-center justify-center flex text-black"
+              >
+                {{ mainStore.wishlist.length }}
+              </p>
+            </NuxtLink>
+          </div>
+          <div v-else>
+            <NuxtLink
+              href="/wishlist"
+              class="relative text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
+              >WishList
+            </NuxtLink>
+          </div>
 
           <NuxtLink
+            v-if="!user"
             href="/signin"
             class="text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Log In</NuxtLink
           >
           <NuxtLink
+            v-if="!user"
             href="/signup"
             class="border-2 border-white text-slate-80 dark:text-white hover:bg-slate-950 focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1 lg:py-1.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-white"
             >Sign Up</NuxtLink
