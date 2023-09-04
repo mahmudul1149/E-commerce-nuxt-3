@@ -27,7 +27,11 @@
             :key="product.id"
             class="p-4 bg-slate-50 hover:shadow-2xl transition ease-in-out delay-150 rounded"
           >
-            <img class="w-80 h-40 object-contain" :src="product.image" alt="" />
+            <img
+              class="w-80 h-40 object-contain"
+              :src="product.thumbnail"
+              alt=""
+            />
             <h2 class="truncate text-blue-950 mb-1">{{ product.title }}</h2>
             <NuxtLink v-if="mainStore.user" :to="`/products/${product.id}`"
               ><button
@@ -66,7 +70,8 @@ const fetchData = async () => {
   try {
     loading.value = true;
     const { data } = await $axios.get("/products");
-    products.value = data;
+    console.log(data.products);
+    products.value = data.products;
   } catch (error) {
     throw error;
   } finally {

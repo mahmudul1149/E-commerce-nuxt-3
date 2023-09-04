@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseURL: "https://fakestoreapi.com/",
+      baseURL: "https://dummyjson.com/",
     },
   },
 });

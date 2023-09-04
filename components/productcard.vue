@@ -5,7 +5,7 @@
         <div class="">
           <img
             class="w-[200-px] h-[400px] object-contain"
-            :src="product.image"
+            :src="product.thumbnail"
             alt=""
           />
         </div>
