@@ -48,6 +48,7 @@
               </button>
               <h2 class="text-center">{{ product.quantity }}</h2>
               <button
+                @click="mainStore.deleteQty(product.id)"
                 class="px-1 py-1 bg-[#EFF0F5] rounded text-xl text-gray-400 mr-1"
               >
                 -

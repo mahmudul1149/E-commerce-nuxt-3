@@ -73,7 +73,12 @@ export const useMainStore = defineStore("main", {
       const record = this.wishlist.find((el) => el.id === id);
       record.quantity++;
     },
-
+    async deleteQty(id) {
+      const record = this.wishlist.find((el) => el.id === id);
+      if (record.quantity > 1) {
+        record.quantity--;
+      }
+    },
     setUser(user) {
       this.user = user;
     },
