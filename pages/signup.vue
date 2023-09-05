@@ -81,8 +81,10 @@
 import { useMainStore } from "@/store/index";
 
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import { ref } from "vue";
@@ -105,11 +107,25 @@ const signUpWithEmail = async () => {
     await updateProfile(user, {
       displayName: userName.value,
     });
-    store.user = user;
     router.push("/");
     (userName.value = ""), (email.value = ""), (password.value = "");
   } catch (error) {
     throw error;
+  }
+};
+const signInWithGoogle = async () => {
+  const router = useRouter();
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  try {
+    const { user } = await signInWithPopup(auth, provider);
+    await updateProfile(user, {
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+    });
+    router.push("/");
+  } catch (error) {
+    console.log(error);
   }
 };
 </script>

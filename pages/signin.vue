@@ -74,12 +74,33 @@
 
 <script setup>
 import { useMainStore } from "@/store/index";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 const store = useMainStore();
 const email = ref("");
 const password = ref("");
 
 const signInWithEmail = async () => {
   await store.login(email.value, password.value);
+};
+const signInWithGoogle = async () => {
+  const router = useRouter();
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  try {
+    const { user } = await signInWithPopup(auth, provider);
+    await updateProfile(user, {
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+    });
+    router.push("/");
+  } catch (error) {
+    console.log(error);
+  }
 };
 </script>
 <style scoped>
