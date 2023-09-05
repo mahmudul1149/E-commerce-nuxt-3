@@ -69,6 +69,10 @@ export const useMainStore = defineStore("main", {
     async saveWishlistToStorage() {
       localStorage.setItem("wishlist", JSON.stringify(this.wishlist));
     },
+    async addQty(id) {
+      const record = this.wishlist.find((el) => el.id === id);
+      record.quantity++;
+    },
 
     setUser(user) {
       this.user = user;
