@@ -8,6 +8,13 @@ export const useMainStore = defineStore("main", {
     error: "",
     wishlist: [],
   }),
+  getters: {
+    totalPrice() {
+      return this.wishlist.reduce((sum, product) => {
+        return sum + product.price * product.quantity;
+      }, 0);
+    },
+  },
   actions: {
     async fetchData() {
       const { data: mountains } = await useFetch(

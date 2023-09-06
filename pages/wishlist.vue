@@ -42,14 +42,14 @@
             <div class="grid items-center grid-cols-3">
               <button
                 @click="addQtys(product.id)"
-                class="px-1 py-1 bg-[#EFF0F5] rounded text-xl text-gray-400"
+                class="px-1 py-1 bg-[#EFF0F5] hover:bg-[#E5E7EB] rounded text-xl text-gray-400"
               >
                 +
               </button>
-              <h2 class="text-center">{{ product.quantity }}</h2>
+              <h2 class="text-center opacity-70">{{ product.quantity }}</h2>
               <button
                 @click="mainStore.deleteQty(product.id)"
-                class="px-1 py-1 bg-[#EFF0F5] rounded text-xl text-gray-400 mr-1"
+                class="px-1 py-1 bg-[#EFF0F5] hover:bg-[#E5E7EB] rounded text-xl text-gray-400 mr-1"
               >
                 -
               </button>
@@ -70,22 +70,24 @@
             </div>
           </li>
         </ul>
-        <div class="bg-white border border-gray-300 rounded h-[160px] p-2">
-          <div class="text-center text-[#212121] text-xl">Product summary</div>
+        <div class="bg-white border border-white-300 rounded h-[160px] p-2">
+          <div class="text-center text-[#212121] text-xl">Order Summary</div>
           <div class="flex items-center justify-between">
             <h2 class="text-[#7E757E]">Subtotal</h2>
-            <p class="text-[#354A4B]">220$</p>
+            <p class="text-[#354A4B]">{{ mainStore.totalPrice }}$</p>
           </div>
           <div class="flex items-center justify-between">
-            <h2 class="text-[#7E757E]">Fee</h2>
-            <p class="font-sans text-[#354A4B]">480$</p>
+            <h2 class="text-[#7E757E]">Shipping Fee</h2>
+            <p class="font-sans text-[#354A4B]">112$</p>
           </div>
           <div class="flex items-center justify-between">
-            <h2 class="text-[#212121]">total</h2>
-            <p class="text-[#F57224]">480$</p>
+            <h2 class="text-[#212121]">Total</h2>
+            <p class="text-[#F57224]">{{ mainStore.totalPrice + 110 }}$</p>
           </div>
-          <button class="w-full bg-green-500 text-white mt-1 py-1 rounded">
-            Procced
+          <button
+            class="text-sans w-full bg-[#D0611E] text-white mt-2 py-1 rounded"
+          >
+            PROCEED TO CHECKOUT ({{ mainStore.wishlist.length }})
           </button>
         </div>
       </div>
