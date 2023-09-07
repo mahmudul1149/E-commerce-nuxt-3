@@ -85,6 +85,7 @@
             <p class="text-[#F57224]">{{ mainStore.totalPrice + 110 }}$</p>
           </div>
           <button
+            @click="showModal"
             class="text-sans w-full bg-[#D0611E] text-white mt-2 py-1 rounded"
           >
             PROCEED TO CHECKOUT ({{ mainStore.wishlist.length }})
@@ -92,12 +93,14 @@
         </div>
       </div>
     </div>
+    <Orderform v-if="show" @toggleOrderForm="showModal" />
   </div>
 </template>
 <script setup>
+import Orderform from "@/components/orderform";
 import { useMainStore } from "@/store/index";
 const mainStore = new useMainStore();
-
+const show = ref(false);
 const delteItems = (id) => {
   mainStore.wishlist = mainStore.wishlist.filter(
     (product) => product.id !== id
@@ -106,6 +109,9 @@ const delteItems = (id) => {
 };
 const addQtys = (id) => {
   mainStore.addQty(id);
+};
+const showModal = () => {
+  show.value = !show.value;
 };
 onMounted(() => {
   mainStore.initializeWishlist();
