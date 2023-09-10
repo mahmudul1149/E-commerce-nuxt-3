@@ -6,7 +6,7 @@
     <div class="bg-[#333333] p-2 max-[1200px]:hidden">
       <Category :categories="categories" v-model="selectedCategory" />
     </div>
-    <div class="bg-gray-200 pt-20 p-20 overflow-auto h-screen 1">
+    <div class="bg-gray-200 pt-20 p-20 overflow-auto min-h-[100vh] 1">
       <div>
         <div>
           <input
